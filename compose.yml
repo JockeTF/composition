@@ -1,8 +1,7 @@
 ---
 services:
   ingress:
-    build:
-      context: ingress
+    build: ingress
     image: localhost/composition/ingress
     init: true
     ports:
@@ -12,7 +11,6 @@ services:
       - ../Containers/ingress-certs:/certs
 
   hellopaca:
-    build:
-      context: hellopaca
+    build: hellopaca
     image: localhost/composition/hellopaca
     init: true
