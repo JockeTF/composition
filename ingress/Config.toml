@@ -9,6 +9,13 @@ server_name = "localhost"
 [[apps.localhost.reverse_proxy]]
 upstream = [{ location = "hellopaca:49211" }]
 
+[apps.www_fimfarchive_net]
+server_name = "www.fimfarchive.net"
+tls = { acme = true, https_redirection = true }
+
+[[apps.www_fimfarchive_net.reverse_proxy]]
+upstream = [{ location = "fimfawebsite:34407" }]
+
 [experimental.acme]
 email = "joakim.soderlund@gmail.com"
 registry_path = "/certs"

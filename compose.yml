@@ -10,6 +10,13 @@ services:
     volumes:
       - ../Containers/ingress-certs:/certs
 
+  fimfawebsite:
+    build: https://github.com/JockeTF/fimfarchive.git#:operations/website
+    image: localhost/composition/fimfawebsite
+    init: true
+    volumes:
+      - ../Fimfarchive:/releases
+
   hellopaca:
     build: hellopaca
     image: localhost/composition/hellopaca
