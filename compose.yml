@@ -1,0 +1,9 @@
+---
+services:
+  hellopaca:
+    build:
+      context: hellopaca
+    image: localhost/composition/hellopaca
+    init: true
+    ports:
+      - '[::]:49211:49211'
