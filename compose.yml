@@ -4,9 +4,7 @@ services:
     build: ingress
     image: localhost/composition/ingress
     init: true
-    ports:
-      - "[::]:8080:8080"
-      - "[::]:8443:8443"
+    network_mode: host
     volumes:
       - ../Containers/ingress-certs:/certs
 
@@ -14,6 +12,7 @@ services:
     build: https://github.com/JockeTF/fimfarchive.git#:operations/website
     image: localhost/composition/fimfawebsite
     init: true
+    network_mode: host
     volumes:
       - ../Fimfarchive:/releases
 
@@ -21,3 +20,4 @@ services:
     build: hellopaca
     image: localhost/composition/hellopaca
     init: true
+    network_mode: host
