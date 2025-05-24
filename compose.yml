@@ -8,6 +8,12 @@ services:
     volumes:
       - ../Containers/ingress-certs:/certs
 
+  fimfatracker:
+    build: https://github.com/JockeTF/fimfarchive.git#:operations/tracker
+    image: localhost/composition/fimfatracker
+    init: true
+    network_mode: host
+
   fimfawebsite:
     build: https://github.com/JockeTF/fimfarchive.git#:operations/website
     image: localhost/composition/fimfawebsite
