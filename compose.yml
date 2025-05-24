@@ -21,3 +21,13 @@ services:
     image: localhost/composition/hellopaca
     init: true
     network_mode: host
+
+  torrent:
+    build: torrent
+    image: localhost/composition/torrent
+    init: true
+    network_mode: host
+    volumes:
+      - ../Containers/torrent-state:/app
+      - ../Prereleases:/prereleases
+      - ../Fimfarchive:/releases
