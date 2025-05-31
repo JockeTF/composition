@@ -8,7 +8,7 @@ WORKDIR /build
 USER build
 
 RUN --mount=dst="$CARGO_HOME/registry",id=TF7H3uKc,type=cache,uid="$UID" true \
- && cargo install --git https://github.com/JockeTF/rust-rpxy.git
+ && cargo install --git https://github.com/junkurihara/rust-rpxy.git
 
 
 FROM scratch
