@@ -5,6 +5,7 @@ services:
     image: localhost/composition/ingress
     init: true
     network_mode: host
+    restart: on-failure
     volumes:
       - ../Containers/ingress/certs:/certs
 
@@ -13,12 +14,14 @@ services:
     image: localhost/composition/fimfatracker
     init: true
     network_mode: host
+    restart: on-failure
 
   fimfawebsite:
     build: https://github.com/JockeTF/fimfarchive.git#:operations/website
     image: localhost/composition/fimfawebsite
     init: true
     network_mode: host
+    restart: on-failure
     volumes:
       - ../Fimfarchive:/releases
 
@@ -27,12 +30,14 @@ services:
     image: localhost/composition/hellopaca
     init: true
     network_mode: host
+    restart: on-failure
 
   torrent:
     build: torrent
     image: localhost/composition/torrent
     init: true
     network_mode: host
+    restart: on-failure
     volumes:
       - ../Containers/torrent/state:/app
       - ../Prereleases:/prereleases
