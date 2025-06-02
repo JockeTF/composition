@@ -7,8 +7,10 @@ RUN adduser -D -u "$UID" -h /build build
 WORKDIR /build
 USER build
 
+ARG FEATURES='acme,rustls-backend'
+ARG SOURCE='https://github.com/junkurihara/rust-rpxy.git'
 RUN --mount=dst="$CARGO_HOME/registry",id=TF7H3uKc,type=cache,uid="$UID" true \
- && cargo install --git https://github.com/junkurihara/rust-rpxy.git
+ && cargo install --no-default-features --features="$FEATURES" --git="$SOURCE"
 
 
 FROM scratch
