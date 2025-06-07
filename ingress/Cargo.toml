@@ -1,0 +1,18 @@
+[package]
+name = "ingress"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0"
+authors = ["Joakim Soderlund <joakim.soderlund@gmail.com>"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = true
+
+[dependencies]
+reversi = { git = "https://github.com/JockeTF/reversi.git" }
+
+[lints.clippy]
+pedantic = "warn"
