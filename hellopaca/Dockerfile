@@ -7,8 +7,13 @@ RUN adduser -D -u "$UID" -h /build build
 WORKDIR /build
 USER build
 
-COPY --chown="$UID" . .
+COPY --chown="$UID" Cargo.toml .
+RUN --mount=dst="$CARGO_HOME/registry",id=VcK9VNqc,type=cache,uid="$UID" true \
+ && mkdir src \
+ && touch src/lib.rs \
+ && cargo build --release
 
+COPY --chown="$UID" . .
 RUN --mount=dst="$CARGO_HOME/registry",id=VcK9VNqc,type=cache,uid="$UID" true \
  && cargo build --release
 

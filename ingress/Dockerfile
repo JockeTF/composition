@@ -7,10 +7,16 @@ RUN adduser -D -u "$UID" -h /build build
 WORKDIR /build
 USER build
 
-COPY --chown="$UID" . .
-
 ARG CPU='ivybridge'
 ENV RUSTFLAGS="-C target-cpu=$CPU"
+
+COPY --chown="$UID" Cargo.toml .
+RUN --mount=dst="$CARGO_HOME/registry",id=TF7H3uKc,type=cache,uid="$UID" true \
+ && mkdir src \
+ && touch src/lib.rs \
+ && cargo build --release
+
+COPY --chown="$UID" . .
 RUN --mount=dst="$CARGO_HOME/registry",id=TF7H3uKc,type=cache,uid="$UID" true \
  && cargo build --release
 
