@@ -9,6 +9,8 @@ USER build
 
 COPY --chown="$UID" . .
 
+ARG CPU='ivybridge'
+ENV RUSTFLAGS="-C target-cpu=$CPU"
 RUN --mount=dst="$CARGO_HOME/registry",id=TF7H3uKc,type=cache,uid="$UID" true \
  && cargo build --release
 
