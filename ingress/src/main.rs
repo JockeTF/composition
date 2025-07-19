@@ -12,6 +12,11 @@ const HOSTS: &[Host] = &[
         redirects: &["www.furver.se"],
         upstream: "localhost:49211",
     },
+    Host {
+        domain: "rainbow.furver.se",
+        redirects: &[],
+        upstream: "localhost:45392",
+    },
 ];
 
 pub fn main() -> ! {

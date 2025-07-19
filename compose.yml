@@ -32,6 +32,15 @@ services:
     network_mode: host
     restart: on-failure
 
+  rainbow:
+    build: https://github.com/JockeTF/rainbow.git
+    image: localhost/composition/rainbow
+    init: true
+    network_mode: host
+    restart: on-failure
+    volumes:
+      - ../Containers/rainbow/assets:/assets
+
   torrent:
     build: torrent
     image: localhost/composition/torrent
