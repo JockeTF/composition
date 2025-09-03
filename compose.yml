@@ -9,22 +9,6 @@ services:
     volumes:
       - ../Containers/ingress/certs:/certs
 
-  fimfatracker:
-    build: https://github.com/JockeTF/fimfarchive.git#:operations/tracker
-    image: localhost/composition/fimfatracker
-    init: true
-    network_mode: host
-    restart: on-failure
-
-  fimfawebsite:
-    build: https://github.com/JockeTF/fimfarchive.git#:operations/website
-    image: localhost/composition/fimfawebsite
-    init: true
-    network_mode: host
-    restart: on-failure
-    volumes:
-      - ../Fimfarchive:/releases
-
   hellopaca:
     build: hellopaca
     image: localhost/composition/hellopaca
