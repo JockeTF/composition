@@ -3,6 +3,11 @@ use reversi::Reversi;
 
 const HOSTS: &[Host] = &[
     Host {
+        domain: "jocketf.se",
+        redirects: &["www.jocketf.se"],
+        upstream: "localhost:65535",
+    },
+    Host {
         domain: "furver.se",
         redirects: &["www.furver.se"],
         upstream: "localhost:49211",
